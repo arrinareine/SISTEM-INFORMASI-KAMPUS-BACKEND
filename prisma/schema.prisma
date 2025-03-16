@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model user_query {
+  id String // Akan diisi dengan Generate UUID dari tempat lain
+  info_identitas_id String // Bisa NIM atau NIDN
+  email String @unique
+  nomor_telepon String
+  username String @unique
+  password String
+  role String
+}
+
+model info_identitas {
+  id String // Harus Sama Dengan ID User Query
+  infoNIK String @unique
+  infoNama_lengkap String
+  infoJenis_kelamin String
+  infoAlamat String
+  infoAgama String
+  infoStatus_perkawinan String
+  infoKewarganegaraan String
+}
+
+model informasi_fakultas {
+  id_fakultas String @unique
+  nama_fakultas String
+  kode_universitas String
+  kode_fakultas String
+  tanggal_berdiri DateTime
+  kelompok_fakultas String
+}
