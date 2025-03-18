@@ -29,10 +29,11 @@ model info_identitas {
 }
 
 model informasi_fakultas {
-  id_fakultas String @unique
+  id_fakultas String @id @default(uuid()) @unique
   nama_fakultas String
+  kode_dikti String
   kode_universitas String
   kode_fakultas String
-  tanggal_berdiri DateTime
+  tanggal_pendirian String
   kelompok_fakultas String
 }
